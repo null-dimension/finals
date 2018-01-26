@@ -44,6 +44,7 @@
   .card {
     border-radius: 5px;
   }
+
 </style>
 
 </html>

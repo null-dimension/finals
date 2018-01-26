@@ -11,5 +11,5 @@
 	<!-- <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/animate.css">  -->
-	<script src="../main.js"></script>
+	<script src="/finals/main.js"></script>
 </head>
