@@ -1,0 +1,1 @@
+create table bids(id integer primary key not null auto_increment, team varchar(255), points integer);
