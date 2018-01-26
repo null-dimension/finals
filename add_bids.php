@@ -60,9 +60,9 @@
                     </td>
                     <td>
                         <div class="input-group">
-                        <input type="number" class="form-control form-inline" style="max-width: 400px;">
+                        <input id="team1-input" type="number" class="form-control form-inline" style="max-width: 400px;">
                         <span class="input-group-btn"><button id="team1-add" class="btn btn-success bid-add team1">Add</button></span>
-                        <span class="input-group-btn"><button class="btn btn-danger team1">Subtract</button></span>
+                        <span class="input-group-btn"><button id="team1-sub" class="btn btn-danger team1">Subtract</button></span>
                         </div>
                     </td>
                 </tr>
@@ -108,7 +108,7 @@
                     </td>
                     <td>
                         <div class="input-group">
-                        <input type="number" class="form-control form-inline" style="max-width: 400px;">
+                        <input id="team4-input" type="number" class="form-control form-inline" style="max-width: 400px;">
                         <span class="input-group-btn"><button id="team4-add" class="btn btn-success  bid-add team4">Add</button></span>
                         <span class="input-group-btn"><button class="btn btn-danger team4">Subtract</button></span>
                         </div>
@@ -144,8 +144,10 @@
 
     $('#team1-add').click(function(){
         $.ajax({
-            method: 'GET',
-            url: `api.php?add_bid&team=team1&points=${$('#team1-add').closest('input').val()}`,
+            method: 'POST',
+            url: `api.php?add_bid`,
+            data: `{"team":"Team 1", points: ${$('#team1-input').val()} }`,
+            contentType: "application/json",
             success: function(data){
                 console.log(data);
             },
