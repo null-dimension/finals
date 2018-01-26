@@ -23,7 +23,8 @@ $(document).on('keydown', function (e) {
   // Shift & A key together
   // 65 - A
   // 13 - Enter
-  if (e.shiftKey && e.which == 13) {
+  // 82 - R 
+  if (e.shiftKey && e.which == 82) {
     $('.option').removeClass('btn-danger');
     $('.option').removeClass('btn-default');
     $('.option').removeClass('btn-primary');
