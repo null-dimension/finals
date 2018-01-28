@@ -1,0 +1,77 @@
+<style>
+  #timer {
+    font-size: 3em;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: calc(50% - 100px) auto;
+    text-align: center;
+    padding-top: 20%;
+    box-shadow: 0px 0px 50px 10px #00C9FF;
+    text-shadow: 0px 0px 2px #fff;
+  /*  background: radial-gradient(circle, #92FE9D, #00C9FF);*/
+    animation-name: animateTimerCircle;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+/*
+  .timer-sub-container{
+    border: 1px solid #eee;
+    width: 300px;
+    height: 300px;
+    margin: calc(50% - 150px) auto;
+    border-radius: 50%;
+  }
+  */
+  .timer-container{
+    border: 1px solid #eee;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-left: calc(50% - 150px);
+    box-shadow: 0 0 50px 10px #92FE9D;
+    animation-name: animateContainer;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  @keyframes animateTimerCircle{
+    from{
+      box-shadow: 0px 0px 50px 5px #00C9FF;
+      text-shadow: 0px 0px 2px #fff;
+    }
+    to{
+      box-shadow: 0px 0px 100px 10px #00C9FF;
+      text-shadow: 0px 0px 3px #00C9FF;
+    }
+  }
+  /*
+  @keyframes animateSubContainer {
+    from{
+      box-shadow: 0px 0px 100px 10px #00C9FF;
+    }
+    to{
+      box-shadow: 0px 0px 200px 20px #00C9FF;
+    }
+  }*/
+  @keyframes animateContainer {
+    from{
+      box-shadow: 0px 0px 25px 5px #92FE9D;
+    }
+    to{
+      box-shadow: 0 0 50px 10px #92FE9D;
+    }
+  }
+</style>
+<div class="timer-container">
+  <div class="timer-sub-container">
+    <div class="" id="timer"></div>
+    </div>
+  </div>
+<script>
+ 
+  $("#timer").countdown({until: +62, compact: true, format: 'MS'/*, onExpiry: timeup*/});
+</script>
