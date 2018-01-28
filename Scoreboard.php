@@ -1,6 +1,9 @@
 <?php include 'header.php';
 	include 'DB.php'; 
 	$round = 1;
+	if(isset($_GET['round'])){
+		$round = $_GET['round'];
+	}
     $stmt = $conn->query("SELECT * FROM scoreboard WHERE rounds = '$round'"); 
 
 	?>
@@ -20,7 +23,7 @@
 
 <div class="container">
 	<div class="card">
-		<div class="card-header"><h2 class="display-4">Scores of Round 1</h2></div>
+		<div class="card-header"><h2 class="display-4">Scores of Round <?php echo $round; ?></h2></div>
 		<div class="card-body">
 			<table class="table table-bordered">
 			<thead class="thead-light"> 
@@ -41,7 +44,7 @@
 			</table>
 			<?php echo $row['points']; ?>
 			<hr>
-			<a href="score.php?id=$id" class="btn btn-primary btn-block">Next</a>
+			<a href="score.php" class="btn btn-primary btn-block">Next</a>
 		</div>
 	</div> <br>
 </div>

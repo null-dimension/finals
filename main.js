@@ -30,8 +30,10 @@ $(document).on('keydown', function (e) {
     $('.option').removeClass('btn-primary');
     $('.answer').removeClass('btn-outline-primary');
     $('.answer').addClass('btn-success animated pulse');
+
+    $('#answerModal').modal('show');
   }
-  if (e.which == 13) {
+  if (e.which == 13 && $('a').length != 0) {
 
     window.location = $('a').prop('href');
 

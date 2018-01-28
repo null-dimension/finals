@@ -20,7 +20,25 @@
         <p class="card-text ">
           Question 1 of Round 1 for Team 2
         </p>
-
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn btn-outline-primary btn-block option">Option 1</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-primary btn-block option">Option 2</button>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn btn-outline-primary btn-block option answer">Option 3</button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-outline-primary btn-block option">Option 4</button>
+            </div>
+          </div>
+        </div>
         <hr>
         <a href="T3a.php" class="btn btn-primary btn-block">NEXT</a>
         <!-- link to T2a -->

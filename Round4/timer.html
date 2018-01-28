@@ -9,14 +9,15 @@
     padding-top: 20%;
     box-shadow: 0px 0px 50px 10px #00C9FF;
     text-shadow: 0px 0px 2px #fff;
-  /*  background: radial-gradient(circle, #92FE9D, #00C9FF);*/
+    /*  background: radial-gradient(circle, #92FE9D, #00C9FF);*/
     animation-name: animateTimerCircle;
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
   }
-/*
+
+  /*
   .timer-sub-container{
     border: 1px solid #eee;
     width: 300px;
@@ -25,7 +26,8 @@
     border-radius: 50%;
   }
   */
-  .timer-container{
+
+  .timer-container {
     border: 1px solid #eee;
     width: 300px;
     height: 300px;
@@ -34,20 +36,23 @@
     box-shadow: 0 0 50px 10px #92FE9D;
     animation-name: animateContainer;
     animation-duration: 1s;
-    animation-timing-function: ease-in-out;;
+    animation-timing-function: ease-in-out;
+    ;
     animation-iteration-count: infinite;
     animation-direction: alternate;
   }
-  @keyframes animateTimerCircle{
-    from{
+
+  @keyframes animateTimerCircle {
+    from {
       box-shadow: 0px 0px 50px 5px #00C9FF;
       text-shadow: 0px 0px 2px #fff;
     }
-    to{
+    to {
       box-shadow: 0px 0px 100px 10px #00C9FF;
       text-shadow: 0px 0px 3px #00C9FF;
     }
   }
+
   /*
   @keyframes animateSubContainer {
     from{
@@ -57,11 +62,12 @@
       box-shadow: 0px 0px 200px 20px #00C9FF;
     }
   }*/
+
   @keyframes animateContainer {
-    from{
+    from {
       box-shadow: 0px 0px 25px 5px #92FE9D;
     }
-    to{
+    to {
       box-shadow: 0 0 50px 10px #92FE9D;
     }
   }
@@ -69,9 +75,23 @@
 <div class="timer-container">
   <div class="timer-sub-container">
     <div class="" id="timer"></div>
-    </div>
   </div>
+</div>
 <script>
- 
-  $("#timer").countdown({until: +62, compact: true, format: 'MS'/*, onExpiry: timeup*/});
+  $("#timer").countdown({
+    until: +62,
+    compact: true,
+    format: 'MS',
+    onExpiry: timeup
+  });
+
+  function timeup() {
+    $('#timeupModal').modal('show');
+    $('#timer').css({
+      'animation-name': 'none'
+    });
+    $('.timer-container').css({
+      'animation-name': 'none'
+    });
+  }
 </script>

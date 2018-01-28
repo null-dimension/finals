@@ -42,7 +42,7 @@
 
 
         <hr>
-        <a href="../R2.php" class="btn btn-primary btn-block">NEXT</a>
+        <a href="../Round1/Scoreboard.php" class="btn btn-primary btn-block">NEXT</a>
         <!-- link to T2a -->
       </div>
     </div>
@@ -61,7 +61,6 @@
   .card {
     border-radius: 5px;
   }
-  
 </style>
 
 </html>

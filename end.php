@@ -2,12 +2,12 @@
 <html>
 <?php include("header.php"); ?>
 
-<body>
+<body class="animated fadeIn">
 
   <!-- Header -->
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1 class="display-3 text-center animated zoomIn">THANK YOU</h1>
+      <h1 class="display-3 text-center animated rollIn">THANK YOU</h1>
     </div>
   </div>
 </body>

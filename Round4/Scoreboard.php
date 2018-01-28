@@ -9,7 +9,7 @@
 <html>
 
 <head>
-	<title>Score-Board
+	<title>Scoreboard
 	</title>
 </head>
 
@@ -53,7 +53,7 @@
 				</table>
 				<?php echo $row['points']; ?>
 				<hr>
-				<a href="../audience/A4.php" class="btn btn-primary btn-block">Next</a>
+				<a href="../end.php" class="btn btn-primary btn-block">Next</a>
 			</div>
 		</div>
 		<br>

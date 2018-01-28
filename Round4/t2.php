@@ -23,7 +23,20 @@
       </div>
     </div>
   </div>
+  <!-- Modal -->
+  <div class="modal fade" id="timeupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLongTitle">Time's up!</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
 
+      </div>
+    </div>
+  </div>
 </body>
 <style type="text/css">
   body {

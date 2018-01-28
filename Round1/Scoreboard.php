@@ -53,7 +53,7 @@
 				</table>
 				<?php echo $row['points']; ?>
 				<hr>
-				<a href="../audience/A1.php" class="btn btn-primary btn-block">Next</a>
+				<a href="../R2.php" class="btn btn-primary btn-block">Next</a>
 			</div>
 		</div>
 		<br>

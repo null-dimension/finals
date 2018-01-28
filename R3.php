@@ -27,7 +27,7 @@
           <br>
         </p>
         <hr>
-        <a href="Round3/T1a.php" class="btn btn-primary btn-block">LET'S GO</a>
+        <a href="Round3/bid_Q1.php" class="btn btn-primary btn-block">LET'S GO</a>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
 <html>
 <?php include("../header.php"); ?>
 
-<body>
+<body id="particles-js">
 
   <!-- Header -->
   <div class="jumbotron jumbotron-fluid animated fadeInDown">
@@ -21,7 +21,7 @@
           Question 1 of Round 2 for Team 2
         </p>
 
-        
+
         <br>
         <hr>
         <a href="T2a.php" class="btn btn-primary btn-block">NEXT</a>
@@ -30,10 +30,33 @@
     </div>
 
   </div>
+  <!-- Modal -->
+  <div class="modal fade" id="answerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLongTitle">Answer</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h1>{Answer goes here}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
   <?php include('timer.html'); ?>
+
+  <script src="/finals/particles.js"></script>
+  <script>
+    particlesJS.load('particles-js', '../particles.json', function () {
+      console.log('loaded');
+    });
+  </script>
 </body>
 <style type="text/css">
-  body {
+  /* body {
     background: linear-gradient(to right, #00C9FF, #92FE9D);
   }
 
@@ -43,8 +66,42 @@
 
   .card {
     border-radius: 5px;
+  } */
+
+  body {
+    margin: 0;
   }
 
+  .jumbotron {
+    background: white;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    padding: 2em;
+  }
+
+  .card {
+    border-radius: 5px;
+    align-items: center;
+    padding: 2em;
+    position: absolute;
+    top: 300px;
+    /* left:50px; */
+    margin-left: 25%;
+    margin-right: 20%;
+    border-radius: 1em;
+    /* opacity: 0.8; */
+  }
+
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #242631;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    background-position: 50% 50%;
+  }
 </style>
 
 </html>

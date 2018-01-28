@@ -20,7 +20,7 @@
         <p class="card-text ">
           Question 1 of Round 2 for Team 4
         </p>
-        <?php include('timer.html'); ?>
+
         <br>
         <hr>
         <a href="T1b.php" class="btn btn-primary btn-block">NEXT</a>
@@ -28,7 +28,24 @@
       </div>
     </div>
   </div>
+  <!-- Modal -->
+  <div class="modal fade" id="answerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLongTitle">Answer</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h1>{Answer goes here}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <?php include('timer.html'); ?>
 </body>
 <style type="text/css">
   body {

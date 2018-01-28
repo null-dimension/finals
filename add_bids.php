@@ -1,120 +1,116 @@
 <!DOCTYPE html>
-<?php include 'DB.php';
+<?php 
+    include 'DB.php';
 	include 'header.php';
 
 if (isset($_POST["submit"])) {
-	$round = $_POST["round"];
+	$team = $_POST["team"];
 
-	if (!empty($_POST["team1"])) {
-		$team1 = $_POST["team1"];
-	
-	 if (!empty($_POST["team2"])) {
-	 	$team2 = $_POST["team2"];
-	
-	 if (!empty($_POST["team3"])) {
-	 	$team3 = $_POST["team3"];
+if (isset($_POST["points"]) && is_numeric($_POST["points"])) {
+    $points = $_POST["points"];
 
-	 if (!empty($_POST["team4"])) {
-	 	$team4 = $_POST["team4"];
-// 	 			$query="Insert into `scoreboard`
-// (teamname, points, rounds) values('Team 1', '$team1', 'Round 1')";
-// 	 			$query="Insert into `scoreboard`
-// (teamname, points, rounds) values('Team 2', '$team2', 'Round 1')";
-// 		$query="Insert into `scoreboard`
-// (teamname, points, rounds) values('Team 3', '$team3', 'Round 1')";
-// 		$query="Insert into `scoreboard`
-// (teamname, points, rounds) values('Team 4', '$team4', 'Round 1')";
-// $con->multi_query($query);
-	 	    // begin the transaction
-    $conn->beginTransaction();
-    // our SQL statements
-    $conn->exec("INSERT INTO scoreboard (teamname, points, rounds) 
-    VALUES ('Team 1', '$team1', '$round')");
-    $conn->exec("INSERT INTO scoreboard (teamname, points, rounds) 
-    VALUES ('Team 2', '$team2', '$round')");
-    $conn->exec("INSERT INTO scoreboard (teamname, points, rounds) 
-    VALUES ('Team 3', '$team3', '$round')");
-      $conn->exec("INSERT INTO scoreboard (teamname, points, rounds) 
-    VALUES ('Team 4', '$team4', '$round')");
+    $stmt = $conn->prepare('SELECT * FROM bids WHERE team="' . $team . '"');
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    if($result)
+    {
+        $conn->exec('UPDATE bids SET points=' . $points . ' WHERE team="' . $team . '"');
+    }
+    else
+    {
+        $conn->exec("INSERT INTO bids VALUES (DEFAULT, '$team', '$points')");
+    }
 
-    // commit the transaction
-    $conn->commit();
-    echo "New records created successfully";
-	} else {
-		echo "Enter a score for team 4";
-	}
-	} else {
-		echo "Enter a score for team 3";
-	}
-	} else {
-		echo "Enter a score for team 2";
-	}
-	} else {
-		echo "Enter a score for team 1";
-	}
+    
+
+    echo '<div class="alert alert-success">New records created successfully</div>';
+    echo '<script>window.location = "add_bids.php"</script>';
 
 	
+} 
+else 
+{
+    echo '<div class="alert alert-danger">Please enter points!</div>';
+}
 }
  ?>
 <html>
+
 <head>
-	<title>Score-Board</title>
+    <title>Scoreboard</title>
 </head>
+
 <body>
-	  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-3 text-center">Enter Bids</h1>
-  </div>
-</div>
-	<div class="container">
-<div class="card">
-<form method="post" class="form-group" action="<?php echo $_SERVER["PHP_SELF"];?>" >
-	<label>Round:</label>
-		<select name="round" class="form-control">
-			<option value="1">Round 1</option>
-			<option value="2">Round 2</option>
-			<option value="3">Round 3</option>
-			<option value="4">Round 4</option>
-		</select> <hr>
-	<div class="row">
-		<div class="col">
-		<label>Team 1:</label>
-	<input type="number" class="form-control" name="team1">
-	<br></div>
-	<div class="col">
-	<label>Team 2:</label>
-	<input type="number" class="form-control" name="team2">
-	<br></div>
-	</div>
-	<div class="row">
-		<div class="col">
-	<label>Team 3:</label>
-	<input type="number" class="form-control" name="team3">
-	<br></div>
-	<div class="col">
-	<label>Team 4:</label>
-	<input type="number" class="form-control" name="team4">
-	<br></div>
-	</div>
-	<input type="submit" class="btn btn-primary" name="submit">
-</form>
-</div>
-</div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3 text-center">Enter Bids</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <form method="post" class="form-group">
+                <label>Team:</label>
+                <select name="team" class="form-control">
+                    <option value="team1">Team 1</option>
+                    <option value="team2">Team 2</option>
+                    <option value="team3">Team 3</option>
+                    <option value="team4">Team 4</option>
+                </select>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <label>Points:</label>
+                        <input type="number" class="form-control" name="points">
+                        <br>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary" name="submit" value="Submit Bid">
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="card">
+        <?php 
+                $stmt = $conn->prepare('SELECT * FROM bids');
+                $stmt->execute();
+                $result = $stmt->fetchAll();
+            ?>
+        <table class="table" style="max-width: 600px;margin:0 auto;">
+            <?php foreach($result as $r):?>
+            <tr>
+                <td scope="col">
+                    <h3>
+                        <?php echo $r['team']; ?>
+                    </h3>
+                </td>
+                <td scope="col">
+                    <h3>
+                        <?php echo $r['points']; ?>
+                    </h3>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
 </body>
 <style type="text/css">
-	body {
-  background: linear-gradient(to right, #00C9FF , #92FE9D);
-}
-	.jumbotron {
-			background: white;
-	}
-	.card {
-	
-		padding-top: 3em;
-		padding-right: 3em;
-		padding-left: 3em;
-		padding-bottom: 2em;
-		border-radius: 5px;
-	}
+    body {
+        background: linear-gradient(to right, #00C9FF, #92FE9D);
+    }
+
+    .jumbotron {
+        background: white;
+    }
+
+    .card {
+
+        padding-top: 3em;
+        padding-right: 3em;
+        padding-left: 3em;
+        padding-bottom: 2em;
+        border-radius: 5px;
+    }
 </style>
+
 </html>

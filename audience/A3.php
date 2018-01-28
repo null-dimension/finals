@@ -24,12 +24,27 @@
 
 
         <hr>
-        <a href="../R4.php" class="btn btn-primary btn-block">NEXT</a>
+        <a href="../Round3/Scoreboard.php" class="btn btn-primary btn-block">NEXT</a>
         <!-- link to T2a -->
       </div>
     </div>
   </div>
-
+  <!-- Modal -->
+  <div class="modal fade" id="answerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLongTitle">Answer</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h1>{Answer goes here}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 <style type="text/css">
   body {
