@@ -6,7 +6,7 @@
   <!-- Header -->
   <div class="jumbotron jumbotron-fluid animated fadeInDown">
     <div class="container">
-      <h1 class="display-3 text-center">METEOR MASH</h1>
+      <h1 class="display-3 text-center"><span id="text1">METEOR</span> <span id="text2">MASH</span></h1>
       <h3 class="text-center">Welcome to the final round of IT Quiz!</h3>
     </div>
   </div>
@@ -29,17 +29,21 @@
       console.log('loaded');
     });
   </script>
+  <script>
+  $('#text1').animateCss('bounce');
+  </script>
 </body>
 <style type="text/css">
   body {
-   /* background: linear-gradient(to right, #00C9FF, #92FE9D);
-  */}
+   margin: 0;
+   }
 
   .jumbotron {
     background: white;
     margin: 0;
     position: absolute;
     width: 100%;
+    padding: 2em;
   }
 
   .card {
@@ -49,14 +53,16 @@
     position:absolute;
     top:300px;
     /* left:50px; */
-    margin: 0;
+      margin-left: 25%;
+      margin-right: 20%;
+      border-radius: 1em;
+      opacity: 0.8;
   }
   #particles-js{
-    position:absolute;
+  position:absolute;
   width: 100%;
   height: 100%;
-  background-color: #232741;
-  /* background-image: url("http://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/1237px-NASA_logo.svg.png"); */
+  background-color: #242631;
   background-repeat: no-repeat;
   background-size: 20%;
   background-position: 50% 50%;

@@ -21,7 +21,11 @@
           Question 1 of Round 2 for Team 2
         </p>
 
+<<<<<<< HEAD
         
+=======
+        <?php include('timer.html'); ?>
+>>>>>>> e69d9b918e68c5b156e3c300260f816ecac2bd6c
         <br>
         <hr>
         <a href="T2a.php" class="btn btn-primary btn-block">NEXT</a>
@@ -30,7 +34,11 @@
     </div>
 
   </div>
+<<<<<<< HEAD
   <?php include('timer.html'); ?>
+=======
+
+>>>>>>> e69d9b918e68c5b156e3c300260f816ecac2bd6c
 </body>
 <style type="text/css">
   body {
