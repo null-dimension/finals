@@ -20,10 +20,10 @@ $(document).ready(function () {
 });
 $(document).on('keydown', function (e) {
   console.log(e.which);
-  // Shift & A key together
+  // Shift & R key together
   // 65 - A
   // 13 - Enter
-  // 82 - R 
+  // 82 - R - Reveal Answer
   if (e.shiftKey && e.which == 82) {
     $('.option').removeClass('btn-danger');
     $('.option').removeClass('btn-default');
@@ -33,6 +33,28 @@ $(document).on('keydown', function (e) {
 
     $('#answerModal').modal('show');
   }
+
+  // Option A
+  if (e.shiftKey && e.which == 65) {
+    
+    $('.option-a').trigger('click');
+  }
+  // Option B
+  if (e.shiftKey && e.which == 66) {
+    
+    $('.option-b').trigger('click');
+  }
+  // Option C
+  if (e.shiftKey && e.which == 67) {
+    
+    $('.option-c').trigger('click');
+  }
+  // Option D
+  if (e.shiftKey && e.which == 68) {
+    
+    $('.option-d').trigger('click');
+  }
+
   if (e.which == 13 && $('a').length != 0) {
 
     window.location = $('a').prop('href');

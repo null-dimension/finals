@@ -37,19 +37,19 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <button type="button" class="btn btn-outline-primary btn-block option">Option 1</button>
+              <button type="button" class="btn btn-outline-primary btn-block option option-a">Option 1</button>
             </div>
             <div class="col">
-              <button type="button" class="btn btn-outline-primary btn-block option">Option 2</button>
+              <button type="button" class="btn btn-outline-primary btn-block option option-b">Option 2</button>
             </div>
           </div>
           <br>
           <div class="row">
             <div class="col">
-              <button type="button" class="btn btn-outline-primary btn-block option answer">Option 3</button>
+              <button type="button" class="btn btn-outline-primary btn-block option answer option-c">Option 3</button>
             </div>
             <div class="col">
-              <button type="button" class="btn btn-outline-primary btn-block option">Option 4</button>
+              <button type="button" class="btn btn-outline-primary btn-block option option-d">Option 4</button>
             </div>
           </div>
         </div>
@@ -59,8 +59,6 @@
       </div>
     </div>
   </div>
-
-
 
 </body>
 
