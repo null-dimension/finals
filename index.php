@@ -29,9 +29,6 @@
       console.log('loaded');
     });
   </script>
-  <script>
-  $('#text1').animateCss('bounce');
-  </script>
 </body>
 <style type="text/css">
   body {
