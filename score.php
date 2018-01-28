@@ -58,12 +58,12 @@ if (isset($_POST["submit"])) {
  ?>
 <html>
 <head>
-	<title>Score-Board</title>
+	<title>Scoreboard</title>
 </head>
 <body>
 	  <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-3 text-center">Score-Entry</h1>
+    <h1 class="display-3 text-center">Score Entry</h1>
   </div>
 </div>
 	<div class="container">

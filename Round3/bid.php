@@ -9,7 +9,7 @@
 <html>
 
 <head>
-    <title>Score-Board
+    <title>Scoreboard
     </title>
 </head>
 

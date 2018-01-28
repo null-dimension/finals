@@ -1,161 +1,120 @@
-<?php 
-    include 'header.php';
-	include 'DB.php'; 
-
-?>
-
 <!DOCTYPE html>
+<?php include 'DB.php';
+	include 'header.php';
+
+if (isset($_POST["submit"])) {
+	$round = $_POST["round"];
+
+	if (!empty($_POST["team1"])) {
+		$team1 = $_POST["team1"];
+	
+	 if (!empty($_POST["team2"])) {
+	 	$team2 = $_POST["team2"];
+	
+	 if (!empty($_POST["team3"])) {
+	 	$team3 = $_POST["team3"];
+
+	 if (!empty($_POST["team4"])) {
+	 	$team4 = $_POST["team4"];
+// 	 			$query="Insert into `scoreboard`
+// (teamname, points, rounds) values('Team 1', '$team1', 'Round 1')";
+// 	 			$query="Insert into `scoreboard`
+// (teamname, points, rounds) values('Team 2', '$team2', 'Round 1')";
+// 		$query="Insert into `scoreboard`
+// (teamname, points, rounds) values('Team 3', '$team3', 'Round 1')";
+// 		$query="Insert into `scoreboard`
+// (teamname, points, rounds) values('Team 4', '$team4', 'Round 1')";
+// $con->multi_query($query);
+	 	    // begin the transaction
+    $conn->beginTransaction();
+    // our SQL statements
+    $conn->exec("INSERT INTO scoreboard (teamname, points, rounds) 
+    VALUES ('Team 1', '$team1', '$round')");
+    $conn->exec("INSERT INTO scoreboard (teamname, points, rounds) 
+    VALUES ('Team 2', '$team2', '$round')");
+    $conn->exec("INSERT INTO scoreboard (teamname, points, rounds) 
+    VALUES ('Team 3', '$team3', '$round')");
+      $conn->exec("INSERT INTO scoreboard (teamname, points, rounds) 
+    VALUES ('Team 4', '$team4', '$round')");
+
+    // commit the transaction
+    $conn->commit();
+    echo "New records created successfully";
+	} else {
+		echo "Enter a score for team 4";
+	}
+	} else {
+		echo "Enter a score for team 3";
+	}
+	} else {
+		echo "Enter a score for team 2";
+	}
+	} else {
+		echo "Enter a score for team 1";
+	}
+
+	
+}
+ ?>
 <html>
-
 <head>
-    <title>Score-Board
-    </title>
+	<title>Score-Board</title>
 </head>
-<style type="text/css">
-    body {
-        background: linear-gradient(to right, #00C9FF, #92FE9D);
-    }
-
-    .jumbotron {
-        background: white;
-    }
-
-    .card {
-        text-align: center;
-        border-radius: 10px;
-    }
-
-    table {
-        border: 2px;
-    }
-</style>
 <body>
-<div class="jumbotron jumbotron-fluid animated fadeInDown">
-    <div class="container">
-        <h1 class="display-3 text-center">Bid Points</h1>
-    </div>
+	  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3 text-center">Enter Bids</h1>
+  </div>
 </div>
-
-<div class="container animated zoomIn">
-    <div class="card">
-        <div class="card-header">
-            <h2 class="display-4">Enter bid points</h2>
-        </div>
-        <div class="card-body">
-            <table class="table table-bordered">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col" colspan="5">Teams</th>
-                        <th scope="col" colspan="5">Points</th>
-                        <th scope="col" colspan="5">Modify</th>
-                    </tr>
-                </thead>
-
-                <tr>
-                    <td scope="col" colspan="5">
-                        <h3>Team 1</h3>
-                    </td>
-                    <td scope="col" colspan="5">
-                        <h3>13</h3>
-                    </td>
-                    <td>
-                        <div class="input-group">
-                        <input id="team1-input" type="number" class="form-control form-inline" style="max-width: 400px;">
-                        <span class="input-group-btn"><button id="team1-add" class="btn btn-success bid-add team1">Add</button></span>
-                        <span class="input-group-btn"><button id="team1-sub" class="btn btn-danger team1">Subtract</button></span>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td scope="col" colspan="5">
-                        <h3>Team 2</h3>
-                    </td>
-                    <td scope="col" colspan="5">
-                        <h3>13</h3>
-                    </td>
-                    <td>
-                        <div class="input-group">
-                        <input type="number" class="form-control form-inline" style="max-width: 400px;">
-                        <span class="input-group-btn"><button id="team2-add" class="btn btn-success  bid-add team2">Add</button></span>
-                        <span class="input-group-btn"><button class="btn btn-danger team2">Subtract</button></span>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td scope="col" colspan="5">
-                        <h3>Team 3</h3>
-                    </td>
-                    <td scope="col" colspan="5">
-                        <h3>13</h3>
-                    </td>
-                    <td>
-                        <div class="input-group">
-                        <input type="number" class="form-control form-inline" style="max-width: 400px;">
-                        <span class="input-group-btn"><button id="team3-add" class="btn btn-success  bid-add team3">Add</button></span>
-                        <span class="input-group-btn"><button class="btn btn-danger team3">Subtract</button></span>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td scope="col" colspan="5">
-                        <h3>Team 4</h3>
-                    </td>
-                    <td scope="col" colspan="5">
-                        <h3>13</h3>
-                    </td>
-                    <td>
-                        <div class="input-group">
-                        <input id="team4-input" type="number" class="form-control form-inline" style="max-width: 400px;">
-                        <span class="input-group-btn"><button id="team4-add" class="btn btn-success  bid-add team4">Add</button></span>
-                        <span class="input-group-btn"><button class="btn btn-danger team4">Subtract</button></span>
-                        </div>
-                    </td>
-                </tr>
-
-            </table>
-
-        </div>
-    </div>
-    <br>
+	<div class="container">
+<div class="card">
+<form method="post" class="form-group" action="<?php echo $_SERVER["PHP_SELF"];?>" >
+	<label>Round:</label>
+		<select name="round" class="form-control">
+			<option value="1">Round 1</option>
+			<option value="2">Round 2</option>
+			<option value="3">Round 3</option>
+			<option value="4">Round 4</option>
+		</select> <hr>
+	<div class="row">
+		<div class="col">
+		<label>Team 1:</label>
+	<input type="number" class="form-control" name="team1">
+	<br></div>
+	<div class="col">
+	<label>Team 2:</label>
+	<input type="number" class="form-control" name="team2">
+	<br></div>
+	</div>
+	<div class="row">
+		<div class="col">
+	<label>Team 3:</label>
+	<input type="number" class="form-control" name="team3">
+	<br></div>
+	<div class="col">
+	<label>Team 4:</label>
+	<input type="number" class="form-control" name="team4">
+	<br></div>
+	</div>
+	<input type="submit" class="btn btn-primary" name="submit">
+</form>
 </div>
-<script>
-    /*
-    $('.bid-add').on('click', function(){
-        $.ajax({
-        method: 'GET',
-        url: 'api.php?bids',
-        success: function(data){
-            alert(data);
-        },
-        error: function(err){
-            alert(err);
-        }
-    });
-    });*
-    /*
-    $('.bid-add').click(function(e){
-        console.log($(this)[0].id);
-     
-    });
-    */
-
-    $('#team1-add').click(function(){
-        $.ajax({
-            method: 'POST',
-            url: `api.php?add_bid`,
-            data: `{"team":"Team 1", points: ${$('#team1-input').val()} }`,
-            contentType: "application/json",
-            success: function(data){
-                console.log(data);
-            },
-            error: function(err){
-                console.log(err);
-            }
-        });
-    });
-</script>
+</div>
 </body>
+<style type="text/css">
+	body {
+  background: linear-gradient(to right, #00C9FF , #92FE9D);
+}
+	.jumbotron {
+			background: white;
+	}
+	.card {
+	
+		padding-top: 3em;
+		padding-right: 3em;
+		padding-left: 3em;
+		padding-bottom: 2em;
+		border-radius: 5px;
+	}
+</style>
 </html>
